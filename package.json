@@ -1,0 +1,41 @@
+{
+	"name": "fs-multi",
+	"version": "0.0.1",
+	"description": "It can be used for copy and move multiple files and folders, using fs and fs-extra modules. Not tested.",
+	"main": "src/index.js",
+	"engines": {
+		"node": ">=10.0.0"
+	},
+	"engineStrict": true,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/EsTharian/fs-multi.git"
+	},
+	"keywords": [
+		"fs",
+		"file",
+		"system",
+		"copy",
+		"directory",
+		"multi",
+		"multiple",
+		"files",
+		"mkdir",
+		"delete",
+		"remove",
+		"move"
+	],
+	"author": "Muhammed Taha Ayan <tahaayan@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/EsTharian/fs-multi/issues"
+	},
+	"homepage": "https://github.com/EsTharian/fs-multi#readme",
+	"files": [
+		"src/",
+		"!test/"
+	],
+	"dependencies": {
+		"fs-extra": "^8.1.0"
+	}
+}
