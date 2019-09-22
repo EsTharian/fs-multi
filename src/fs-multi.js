@@ -1,23 +1,10 @@
 const fs = require('fs-extra')
 
-const params = {
-	'copy': 'copied',
-	'move': 'moved'
-}
-
 const fsMulti = {
-	multi: (method, arr) => {
-		for (let [src, target] of Object.entries(arr)) {
-			fs[method](src, target, err => {
-				if (err) {
-					this.errorLog = `${src} couldn't be ${params[method]} to ${target}: ${err}`
-					console.error(this.errorLog)
-				}
-				else {
-					this.successLog = `${src} is ${params[method]} to ${target}`
-					console.log(this.successLog)
-				}
-			})
+	multi: async (method, files) => {
+		for (let [src, prop] of Object.entries(files)) {
+			if(typeof prop.callback !== 'function') prop.callback = err => { if (err) console.error(err) }
+			await fs[method](src, prop.dest, prop.opts, prop.callback)
 		}
 	}
 }

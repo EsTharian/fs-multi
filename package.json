@@ -1,10 +1,13 @@
 {
 	"name": "fs-multi",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "It can be used for copy and move multiple files and folders, using fs and fs-extra modules. Not tested.",
 	"main": "src/index.js",
+	"scripts": {
+		"test": "mocha test.js"
+	},
 	"engines": {
-		"node": ">=6.17.1"
+		"node": ">=8.2.1"
 	},
 	"engineStrict": true,
 	"repository": {
@@ -36,6 +39,10 @@
 		"!test/"
 	],
 	"dependencies": {
-		"fs-extra": "^8.1.0"
+		"fs-extra": "8.1.0"
+	},
+	"devDependencies": {
+		"mocha": "^6.2.0",
+		"nyc": "^14.1.1"
 	}
 }
