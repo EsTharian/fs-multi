@@ -1,6 +1,6 @@
 {
 	"name": "fs-multi",
-	"version": "0.0.3",
+	"version": "0.1.0",
 	"description": "It can be used for copy and move multiple files and folders, using fs and fs-extra modules. Not tested.",
 	"main": "src/index.js",
 	"scripts": {
