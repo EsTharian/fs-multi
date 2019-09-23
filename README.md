@@ -18,20 +18,19 @@ You don't ever need to include the native `fs` or `fs-extra` modules. You can no
 const fs = require('fs-multi')
 ```
 
-### multi(method, files[, callback])
+### multi(method, files)
 
 [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md) or [`move`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/move.md) multiple files or directories.
 
-- `method` `<String>` Methods may be `copy` or `move`.
-- `files` `<Object>` Destinations, options and callback functions for each file. Each key of `<Object>` is referred to `src` (see: [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md) or [`move`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/move.md)).
-  - `dest` `<String>`
-  - `opts` `<Object>`
+- `method` `<string>` Methods may be `copy` or `move`.
+- `files` `<Object>` Destinations, options and callback functions or `<string>` as only destinations for each file. Each key of `<Object>` is referred to `src` (see: [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md) or [`move`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/move.md)).
+  - `dest` `<string>` Destination
+  - `opts` `<Object>` Options
       - `overwrite` `<boolean>`: default is `true` for [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md) or default is `false` for [`move`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/move.md)
-      - `errorOnExist` `<boolean>`: fot [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md)
-      - `dereference` `<boolean>`: [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md)
-      - `preserveTimestamps` `<boolean>`: [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md)
-      - `filter` `<Function>`: [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md)
-  - `callback` `<Function>`
+      - `errorOnExist` `<boolean>`: for [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md) only
+      - `dereference` `<boolean>`: for [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md) only
+      - `preserveTimestamps` `<boolean>`: for [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md) only
+      - `filter` `<Function>`: for [`copy`](https://github.com/jprichardson/node-fs-extra/tree/master/docs/copy.md) only
 
 #### Example:
 
@@ -41,20 +40,24 @@ Working with multiple files:
 const fs = require('fs-multi')
 
 let files = {
+
+  // dest is in <Object>
   '/tmp/myfile': {
-    target: '/tmp/mynewfile',
+    dest: '/tmp/mynewfile',
     callback: err => {
       if (err) console.error(err)
       else console.log('myfile success!')
     }
   },
 
-  '/tmp/mysecondfile': {
-    target: '/tmp/mysecondnewfile'
-  }
+  // dest is <string> itself
+  '/tmp/mysecondfile': '/tmp/mysecondnewfile'
 }
 
-fs.multi('copy', files).then(() => console.log('multiple processes completed')).catch(err => console.error(err))
+fs.multi('copy', files).then(
+  () => console.log('multiple processes completed'))
+    .catch(err => console.error(err)
+)
 ```
 
 Working with native [`fs`](https://nodejs.org/api/fs.html) and [`fs-extra`](https://github.com/jprichardson/node-fs-extra/tree/master/docs) methods:

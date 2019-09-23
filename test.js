@@ -9,7 +9,7 @@ describe('copy and move', () => {
 	})
 
 	it('should move files', function () {
-		fs.multi('copy', {
+		fs.multi('move', {
 			'test/index.js': 'test/index-moved.js',
 			'test/fs-multi.js': 'test/fs-multi-moved.js'
 		})
