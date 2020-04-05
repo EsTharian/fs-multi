@@ -1,6 +1,6 @@
 # Node.js: fs-multi
 
-`fs-multi` extends `fs-extra v8.1.0` for working multiple files.
+`fs-multi` extends `fs-extra v9.0.0` for working multiple files.
 
 ## Installation
 
@@ -10,7 +10,7 @@ npm install fs-multi
 
 ## Usage
 
-`fs-multi` is a drop in replacement for `fs-extra v8.1.0`. All methods in `fs` and `fs-extra` are attached to `fs-multi`.
+`fs-multi` is a drop in replacement for `fs-extra v9.0.0`. All methods in `fs` and `fs-extra` are attached to `fs-multi`.
 
 You don't ever need to include the native `fs` or `fs-extra` modules. You can now include only `fs-multi` module.
 
